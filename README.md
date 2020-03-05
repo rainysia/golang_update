@@ -8,7 +8,7 @@ Need to set the golang_package, golang_path,thid_packages_path, and the packages
 ```
 /bin/bash ./go_update.sh
 ```
-![go_update.sh](https://user-images.githubusercontent.com/1259324/70901054-ff30d500-2034-11ea-8209-03a2de40fefd.png)
+![go_update.sh](https://user-images.githubusercontent.com/1259324/76006266-2e295980-5f47-11ea-9092-927c819c9553.png)
 
 Contact
 ----------------------------------------
