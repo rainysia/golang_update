@@ -1,6 +1,8 @@
 golang_update
 =============
 This script will help to update golang version also the thirdparty package with their command.
+When you update you golang version, the thirdparty packages may need update too, so this script will be work with
+https://github.com/rainysia/sync_git_projects script to help you to update you all thirdparty packages ASAP.
 
 Usage
 ----------------------------------------
