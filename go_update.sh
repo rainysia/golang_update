@@ -93,4 +93,4 @@ do
     fi
 done
 # 6, new
-echo -e "\033[1;36m=====`date '+%F %H:%M:%S'` End update:\033[0m Go Version:\033[42;32;1m$current_version\033[0m \033[1;34m $new_version \033[0m\033[1;36m=====\033[0m"
+echo -e "\033[1;36m=====`date '+%F %H:%M:%S'` End update:\033[0m Go Version:\033[42;32;1m$current_version\033[0m to\033[1;34m $new_version \033[0m\033[1;36m=====\033[0m"
