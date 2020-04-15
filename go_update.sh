@@ -25,7 +25,7 @@
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/go1.14.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/go1.14.1.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -36,12 +36,13 @@ third_packages_repo_path=(
    'github.com/rogpeppe/godef'
    'github.com/mdempsky/gocode'
    'github.com/stamblerre/gocode'
-   'github.com/zmb3/gogetdoc'
    'golang.org/x/tools/cmd/goimports'
    'golang.org/x/lint/golint'
    'github.com/alecthomas/gometalinter'
    'github.com/fatih/gomodifytags'
    'golang.org/x/tools/gopls'
+   'golang.org/x/tools/mod'
+   'golang.org/x/tools/xerrors'
    'golang.org/x/tools/cmd/gorename'
    'github.com/jstemmer/gotags'
    'golang.org/x/tools/cmd/guru'
