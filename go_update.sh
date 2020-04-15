@@ -36,6 +36,7 @@ third_packages_repo_path=(
    'github.com/rogpeppe/godef'
    'github.com/mdempsky/gocode'
    'github.com/stamblerre/gocode'
+   'github.com/zmb3/gogetdoc'
    'golang.org/x/tools/cmd/goimports'
    'golang.org/x/lint/golint'
    'github.com/alecthomas/gometalinter'
