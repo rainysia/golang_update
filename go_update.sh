@@ -10,9 +10,9 @@
 # * @author     Rainy Sia <rainysia@gmail.com>
 # * @copyright  2013-2020 BTROOT.ORG
 # * @license    https://opensource.org/licenses/MIT license
-# * @version    GIT: 0.0.1
+# * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2020-03-05 15:29:36
+# * @lastChange 2020-06-15 22:53:35
 
 # * @link http://www.btroot.org
 #*
@@ -25,7 +25,7 @@
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/go1.14.3.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.14.4.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -54,6 +54,7 @@ go_install() {
     `tar -C $golang_path -xzf $golang_package`
 }
 go_build_install() {
+    # some of it may need to run `go mod init` at first
     `go build && go install`
 }
 
