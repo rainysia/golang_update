@@ -12,7 +12,7 @@
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2020-06-15 22:53:35
+# * @lastChange 2020-06-18 14:02:35
 
 # * @link http://www.btroot.org
 #*
@@ -55,6 +55,7 @@ go_install() {
 }
 go_build_install() {
     # some of it may need to run `go mod init` at first
+	# gometalinter: go mod init, go mod vendor, go build && go install
     `go build && go install`
 }
 
@@ -74,7 +75,7 @@ detect_go() {
         current_version=''
     fi
     # 3, install or update go
-    go_install
+    #go_install
     new_version=`go version`
     echo -e "\033[1;30m $action Golang:\033[0m\033[1;36m $current_version\033[0m \033[1;37mto\033[0m\033[1;32m $new_version \033[0m"
 }
