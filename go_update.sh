@@ -25,7 +25,7 @@
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.14.4.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.14.6.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -74,14 +74,14 @@ detect_go() {
         echo -e "\033[1;30m will install   : \033[0m\033[1;31mgo\033[0m \033[1;30mcommand because it's not installed.\033[0m"
         current_version=''
     fi
-    # 3, install or update go
-    #go_install
+    # 3, install or update go ( you may want to stop install again. so comment the below go_install )
+    go_install
     new_version=`go version`
     echo -e "\033[1;30m $action Golang:\033[0m\033[1;36m $current_version\033[0m \033[1;37mto\033[0m\033[1;32m $new_version \033[0m"
 }
 detect_go
-# 4, update third-party packages, suggest run the command manually
-#`/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
+# 4, update third-party packages, suggest run the command manually ( you may need to run the below # script manually )
+`/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
 # 5, switch
 for i in ${third_packages_repo_path[@]}
 do
