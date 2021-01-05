@@ -25,7 +25,7 @@
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.14.6.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.15.0.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -79,8 +79,10 @@ detect_go() {
     new_version=`go version`
     echo -e "\033[1;30m $action Golang:\033[0m\033[1;36m $current_version\033[0m \033[1;37mto\033[0m\033[1;32m $new_version \033[0m"
 }
+# You can comment the below function to skip detect and install go
 detect_go
 # 4, update third-party packages, suggest run the command manually ( you may need to run the below # script manually )
+# You can comment the below script command to skip sync the go src repositories project and run manually.
 `/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
 # 5, switch
 git_clean_f="git clean -f"
