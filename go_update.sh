@@ -83,6 +83,13 @@ detect_go
 # 4, update third-party packages, suggest run the command manually ( you may need to run the below # script manually )
 `/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
 # 5, switch
+git_clean_f="git clean -f"
+git_rm_vendor="rm -rf vendor"
+git_checkout="git checkout ./"
+go_mod_init="go mod init"
+go_mod_vendor="go mod vendor"
+go_install="go install"
+
 for i in ${third_packages_repo_path[@]}
 do
     temp_project=$third_packages_path$i
@@ -90,8 +97,40 @@ do
     if [ ! -d "$temp_project" ]; then
         echo -e "\033[1;31m Wrong Go Third Package Folder: \033[0m\033[1;36m $temp_project \033[0m"
     else
-        `cd $temp_project && go build && go install &> /dev/null`
-        echo -e "\033[1;30m go build && install: \033[0m\033[1;34m $temp_project \033[0m"
+        # github.com/klauspost/asmfmt/cmd/asmfmt'
+        # klauspost/asmfmt needs `go mod init` then `cd ./cmd/asmfmt` and then `go build && go install`
+        # mdempsky/gocode needs `go mod init`
+        # jstemmer/gotags needs `go mod init`
+        # koron/iferr needs `go mod init`
+        # zmb3/gogetdoc need `go mod vendor`
+        # kisielk/errcheck need `go install` directly
+        # alecthomas/gometalinter need `go mod init, go mod vendor, go build && go install`
+        echo -e "\033[1;30m start install: \033[0m\033[1;34m $temp_project \033[0m"
+        if [[ "$i" =~ "klauspost/asmfmt" ]]; then
+            `cd $temp_project && cd ../../ && ${git_clean_f} &> /dev/null`
+            `cd $temp_project && cd ../../ && ${go_mod_init} &> /dev/null`
+            `cd $temp_project && go_build_install &> /dev/null`
+        elif [[ "$i" =~ "mdempsky/gocode" || "$i" =~ "jstemmer/gotags" || "$i" =~ "koron/iferr" ]]; then
+            `cd $temp_project && ${git_clean_f} &> /dev/null`
+            `cd $temp_project && ${go_mod_init} &> /dev/null`
+            `cd $temp_project && go_build_install &> /dev/null`
+        elif [[ "$i" =~ "zmb3/gogetdoc" ]]; then
+            `cd $temp_project && ${git_checkout} &> /dev/null`
+            `cd $temp_project && ${go_mod_vendor} &> /dev/null`
+            `cd $temp_project && go_build_install &> /dev/null`
+        elif [[ "$i" =~ "kisielk/errcheck" ]]; then
+            `cd $temp_project && ${go_install} &> /dev/null`
+        elif [[ "$i" =~ "alecthomas/gometalinter" ]];then
+            `cd $temp_project && ${git_clean_f} &> /dev/null`
+            `cd $temp_project && ${git_rm_vendor} &> /dev/null`
+            `cd $temp_project && ${git_checkout} &> /dev/null`
+            `cd $temp_project && ${go_mod_init} &> /dev/null`
+            `cd $temp_project && ${go_mod_vendor} &> /dev/null`
+            `cd $temp_project && go_build_install `
+        else
+            `cd $temp_project && go_build_install &> /dev/null`
+        fi
+        echo -e "\033[1;30m end go build && install: \033[0m\033[1;34m $temp_project \033[0m"
     fi
 done
 # 6, new
