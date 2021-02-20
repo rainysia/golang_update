@@ -22,6 +22,7 @@
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
+# 4, Update to go1.16
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
@@ -101,7 +102,7 @@ do
     else
         # github.com/klauspost/asmfmt/cmd/asmfmt'
         # klauspost/asmfmt needs `go mod init` then `cd ./cmd/asmfmt` and then `go build && go install`
-        # mdempsky/gocode needs `go mod init`
+        # mdempsky/gocode needs `go mod init` and `go mod vendor`
         # jstemmer/gotags needs `go mod init`
         # koron/iferr needs `go mod init`
         # zmb3/gogetdoc need `go mod vendor`
