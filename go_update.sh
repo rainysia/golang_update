@@ -8,11 +8,11 @@
 # * @category   CategoryName
 # * @package    PackageName
 # * @author     Rainy Sia <rainysia@gmail.com>
-# * @copyright  2013-2020 BTROOT.ORG
+# * @copyright  2013-2021 BTROOT.ORG
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2020-06-18 14:02:35
+# * @lastChange 2021-02-20 13:23:49
 
 # * @link http://www.btroot.org
 #*
@@ -25,7 +25,7 @@
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.15.6.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.16.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -109,10 +109,14 @@ do
         # alecthomas/gometalinter need `go mod init, go mod vendor, go build && go install`
         echo -e "\033[1;30m start install: \033[0m\033[1;34m $temp_project \033[0m"
         if [[ "$i" =~ "klauspost/asmfmt" ]]; then
+            echo "111111"
             `cd $temp_project && cd ../../ && ${git_clean_f} &> /dev/null`
+            echo "2222"
             `cd $temp_project && cd ../../ && ${go_mod_init} &> /dev/null`
+            echo "33333"
             `cd $temp_project && go_build_install &> /dev/null`
-        elif [[ "$i" =~ "mdempsky/gocode" || "$i" =~ "jstemmer/gotags" || "$i" =~ "koron/iferr" ]]; then
+            echo "4444"
+        elif [[ "$i" =~ "jstemmer/gotags" || "$i" =~ "koron/iferr" ]]; then
             `cd $temp_project && ${git_clean_f} &> /dev/null`
             `cd $temp_project && ${go_mod_init} &> /dev/null`
             `cd $temp_project && go_build_install &> /dev/null`
@@ -122,7 +126,7 @@ do
             `cd $temp_project && go_build_install &> /dev/null`
         elif [[ "$i" =~ "kisielk/errcheck" ]]; then
             `cd $temp_project && ${go_install} &> /dev/null`
-        elif [[ "$i" =~ "alecthomas/gometalinter" ]];then
+        elif [[ "$i" =~ "alecthomas/gometalinter" || "$i" =~ "mdempsky/gocode" ]];then
             `cd $temp_project && ${git_clean_f} &> /dev/null`
             `cd $temp_project && ${git_rm_vendor} &> /dev/null`
             `cd $temp_project && ${git_checkout} &> /dev/null`
