@@ -84,6 +84,7 @@ detect_go() {
 detect_go
 # 4, update third-party packages, suggest run the command manually ( you may need to run the below # script manually )
 # You can comment the below script command to skip sync the go src repositories project and run manually.
+# sync_git_projects.sh is here:https://github.com/rainysia/sync_git_projects
 `/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
 # 5, switch
 git_clean_f="git clean -f"
@@ -110,13 +111,9 @@ do
         # alecthomas/gometalinter need `go mod init, go mod vendor, go build && go install`
         echo -e "\033[1;30m start install: \033[0m\033[1;34m $temp_project \033[0m"
         if [[ "$i" =~ "klauspost/asmfmt" ]]; then
-            echo "111111"
             `cd $temp_project && cd ../../ && ${git_clean_f} &> /dev/null`
-            echo "2222"
             `cd $temp_project && cd ../../ && ${go_mod_init} &> /dev/null`
-            echo "33333"
             `cd $temp_project && go_build_install &> /dev/null`
-            echo "4444"
         elif [[ "$i" =~ "jstemmer/gotags" || "$i" =~ "koron/iferr" ]]; then
             `cd $temp_project && ${git_clean_f} &> /dev/null`
             `cd $temp_project && ${go_mod_init} &> /dev/null`
