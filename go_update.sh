@@ -22,11 +22,11 @@
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.16.5
+# 4, Update to go1.16.6
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.16.5.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.16.6.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -43,6 +43,8 @@ third_packages_repo_path=(
    'github.com/alecthomas/gometalinter'
    'github.com/fatih/gomodifytags'
    'golang.org/x/tools/gopls'
+   'golang.org/x/tools/mod'
+   'golang.org/x/tools/xerrors'
    'golang.org/x/tools/cmd/gorename'
    'github.com/jstemmer/gotags'
    'golang.org/x/tools/cmd/guru'
