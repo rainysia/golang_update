@@ -12,17 +12,17 @@
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2021-04-13 00:26:54
+# * @lastChange 2021-09-03 11:34:44
 
 # * @link http://www.btroot.org
 #*
 # 1, update go
-#       tar -C /usr/local -xzf go1.12.4.linux-amd64.tar.gz
+#       tar -C /usr/local -xzf go1.17.0.linux-amd64.tar.gz
 # 2, update package
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.16.7
+# 4, Update to go1.17.0
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
