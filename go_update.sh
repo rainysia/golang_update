@@ -17,12 +17,12 @@
 # * @link http://www.btroot.org
 #*
 # 1, update go
-#       tar -C /usr/local -xzf go1.17.0.linux-amd64.tar.gz
+#       tar -C /usr/local -xzf go1.17.1.linux-amd64.tar.gz
 # 2, update package
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.17.0
+# 4, Update to go1.17.1
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
