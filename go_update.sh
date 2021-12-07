@@ -12,21 +12,21 @@
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2021-11-21 23:45:00
+# * @lastChange 2021-12-07 21:19:02
 
 # * @link http://www.btroot.org
 #*
 # 1, update go
-#       tar -C /usr/local -xzf go1.17.3.linux-amd64.tar.gz
+#       tar -C /usr/local -xzf go1.17.4.linux-amd64.tar.gz
 # 2, update package
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.17.3
+# 4, Update to go1.17.4
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.13.3.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.17.4.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
@@ -82,11 +82,11 @@ detect_go() {
     echo -e "\033[1;30m $action Golang:\033[0m\033[1;36m $current_version\033[0m \033[1;37mto\033[0m\033[1;32m $new_version \033[0m"
 }
 # You can comment the below function to skip detect and install go
-#detect_go
+detect_go
 # 4, update third-party packages, suggest run the command manually ( you may need to run the below # script manually )
 # You can comment the below script command to skip sync the go src repositories project and run manually.
 # sync_git_projects.sh is here:https://github.com/rainysia/sync_git_projects
-#`/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
+`/bin/bash /home/sh/sync_git_projects.sh $third_packages_path origin`
 # 5, switch
 git_clean_f="git clean -f"
 git_rm_vendor="rm -rf vendor"
