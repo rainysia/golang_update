@@ -8,11 +8,11 @@
 # * @category   CategoryName
 # * @package    PackageName
 # * @author     Rainy Sia <rainysia@gmail.com>
-# * @copyright  2013-2021 BTROOT.ORG
+# * @copyright  2013-2022 BTROOT.ORG
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2021-12-07 21:19:02
+# * @lastChange 2022-03-27 00:27:31
 
 # * @link http://www.btroot.org
 #*
@@ -22,11 +22,11 @@
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.17.4
+# 4, Update to go1.18
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.17.4.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.18.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
