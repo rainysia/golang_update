@@ -8,25 +8,25 @@
 # * @category   CategoryName
 # * @package    PackageName
 # * @author     Rainy Sia <rainysia@gmail.com>
-# * @copyright  2013-2021 BTROOT.ORG
+# * @copyright  2013-2023 BTROOT.ORG
 # * @license    https://opensource.org/licenses/MIT license
 # * @version    GIT: 0.0.2
 # * @createTime 2020-03-05 15:29:36
-# * @lastChange 2021-09-03 11:34:44
+# * @lastChange 2023-03-09 15:05:25
 
 # * @link http://www.btroot.org
 #*
 # 1, update go
-#       tar -C /usr/local -xzf go1.17.1.linux-amd64.tar.gz
+#       tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
 # 2, update package
 #       /bin/bash /home/sh/sync_git_projects.sh /usr/local/gotom/ origin
 # 3, compile package and install
 #      cd xxx  go build && go install
-# 4, Update to go1.17.1
+# 4, Update to go1.20.2
 # /bin/bash /home/sh/go_update.sh
 set -e
 declare -a third_packages
-golang_package='/home/softs/develop/golang/go1.16.7.linux-amd64.tar.gz'
+golang_package='/home/softs/develop/golang/go1.20.2.linux-amd64.tar.gz'
 golang_path='/usr/local/'
 third_packages_path='/usr/local/gotom/src/'
 third_packages_repo_path=(
